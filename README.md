@@ -1,6 +1,6 @@
 # macOS-Styled Admin Dashboard
 
-A fully responsive, web-based admin dashboard that mirrors the aesthetic and usability of a macOS desktop environment. This project is built with HTML, Tailwind CSS, and vanilla JavaScript.
+A fully responsive, web-based admin dashboard that mirrors the aesthetic and usability of a macOS desktop environment. This project is built with HTML, Bootstrap 5, and vanilla JavaScript.
 
 ## ✨ Features
 
