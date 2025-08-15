@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>macOS Style Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom Fonts & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="desktop-bg position-relative w-100 h-100">
+
+        <!-- Top Menu Bar -->
+        <div id="menu-bar" class="fixed-top d-flex align-items-center justify-content-between px-3 bg-glass">
+            <div class="d-flex align-items-center gap-4">
+                <div class="fw-bold">Admin</div>
+                <div id="active-app-menu" class="fw-semibold">Finder</div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div id="fullscreen-toggle" class="cursor-pointer">
+                    <i class="bi bi-arrows-fullscreen fs-5"></i>
+                </div>
+                <div id="theme-switcher" class="cursor-pointer">
+                    <i class="bi bi-moon-stars-fill fs-5"></i>
+                </div>
+                <div id="notification-icon" class="cursor-pointer position-relative">
+                    <i class="bi bi-bell-fill fs-5"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </div>
+                <div id="profile-icon" class="position-relative cursor-pointer">
+                    <img src="https://placehold.co/24x24/7c3aed/ffffff?text=A" class="rounded-circle" alt="User Avatar" width="24" height="24">
+                    <div id="profile-menu" class="profile-menu position-absolute top-100 end-0 mt-2 w-auto bg-glass border rounded-3 shadow-lg py-1">
+                        <a href="#" class="dropdown-item px-3 py-2">Profile</a>
+                        <a href="#" class="dropdown-item px-3 py-2">Settings</a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item px-3 py-2">Logout</a>
+                    </div>
+                </div>
+                <div id="clock" class="fw-medium"></div>
+            </div>
+        </div>
+
+        <!-- Notification Drawer -->
+        <div id="notification-drawer" class="notification-drawer position-fixed top-0 end-0 h-100 bg-glass border-start z-2">
+            <div class="p-3 border-bottom">
+                <h3 class="fw-semibold fs-5 mb-0">Notifications</h3>
+            </div>
+            <div id="notification-drawer-content" class="h-100 overflow-y-auto pb-5">
+                <!-- Notifications will be injected here -->
+            </div>
+        </div>
+        
+        <!-- Mobile Home Screen -->
+        <div id="mobile-home-screen" class="mobile-home-screen w-100 h-100 p-4 pt-5">
+            <div class="row row-cols-3 row-cols-sm-4 g-4 text-center">
+                <!-- Mobile app icons will be injected here -->
+            </div>
+        </div>
+
+        <!-- App Windows Container -->
+        <div id="windows-container" class="position-relative w-100 h-100"></div>
+
+        <!-- Dock -->
+        <div class="position-fixed bottom-0 start-50 z-1 mb-3">
+            <div id="dock" class="dock d-flex align-items-end gap-2 p-2 bg-glass border rounded-4">
+                <!-- Dock Icons will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

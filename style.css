@@ -1,0 +1,207 @@
+/*
+ * macOS Style Admin Dashboard
+ * Custom Stylesheet for Bootstrap
+ */
+
+/* --- General Body & Font --- */
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    user-select: none;
+}
+[data-bs-theme="light"] body {
+    color: #212529; /* Bootstrap's default dark text color */
+}
+
+
+/* --- Desktop Wallpaper --- */
+/* Light Mode Wallpaper */
+[data-bs-theme="light"] .desktop-bg {
+    background-image: url('https://images.pexels.com/photos/1064162/pexels-photo-1064162.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+/* Dark Mode Wallpaper */
+[data-bs-theme="dark"] .desktop-bg {
+     background-image: url('https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg');
+     background-size: cover;
+     background-position: center;
+}
+
+/* --- Custom Glass Effect --- */
+.bg-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+[data-bs-theme="dark"] .bg-glass {
+    background-color: rgba(33, 37, 41, 0.7);
+}
+[data-bs-theme="light"] .bg-glass {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* --- Menu Bar Height --- */
+#menu-bar {
+    height: 32px;
+}
+
+/* --- Application Window Styles --- */
+.app-window {
+    min-width: 300px;
+    min-height: 200px;
+    transition: all 0.2s ease-in-out;
+}
+.app-window.is-dragging {
+    transition: none;
+}
+.app-window[data-maximized="true"] {
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+}
+.window-focused {
+    border-color: var(--bs-cyan) !important;
+    box-shadow: 0 0 20px rgba(var(--bs-cyan-rgb), 0.5);
+}
+
+/* --- Window Title Bar & Controls --- */
+.title-bar {
+    height: 36px;
+    cursor: grab;
+    flex-shrink: 0;
+}
+.title-bar:active {
+    cursor: grabbing;
+}
+.window-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.close-btn { background-color: #ff5f57; }
+.min-btn { background-color: #ffbd2e; }
+.max-btn { background-color: #28c940; }
+
+
+/* --- Dock Styles --- */
+.dock {
+    transform: translateX(-50%);
+    height: 80px;
+}
+.dock-item {
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem;
+}
+.dock-item:hover {
+    transform: scale(1.2) translateY(-10px);
+    margin: 0 0.75rem;
+}
+.dock-item .app-name-tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+.dock-item:hover .app-name-tooltip {
+    opacity: 1;
+}
+.active-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Custom Scrollbar --- */
+.window-content::-webkit-scrollbar, .notification-drawer-content::-webkit-scrollbar {
+    width: 8px;
+}
+.window-content::-webkit-scrollbar-track, .notification-drawer-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.window-content::-webkit-scrollbar-thumb, .notification-drawer-content::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+.window-content::-webkit-scrollbar-thumb:hover, .notification-drawer-content::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.7);
+}
+
+/* --- Window Resizer Handle --- */
+.resizer {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 4px;
+}
+.app-window[data-maximized="true"] .resizer {
+    display: none;
+}
+
+/* --- Notification Drawer & Profile Menu --- */
+.notification-drawer {
+    width: 320px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+.notification-drawer.open {
+    transform: translateX(0);
+}
+.profile-menu {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    pointer-events: none;
+}
+.profile-menu.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* --- Mobile-Specific Styles --- */
+.mobile-home-screen {
+    display: none;
+}
+.is-mobile .mobile-home-screen {
+    display: block;
+}
+.is-mobile .dock, .is-mobile .resizer {
+    display: none;
+}
+.is-mobile .app-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 100 !important;
+}
+.is-mobile .app-window .min-btn, .is-mobile .app-window .max-btn {
+    display: none;
+}
